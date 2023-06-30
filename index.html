@@ -32,18 +32,98 @@
                 </div>
 
                 <div class="col-12 col-md-4 col-lg-2 mt-3">
-                    <a href="#reserveForm" 
-                    role="button" 
-                    class="btn btn-lg btn-info text-white"
-                    data-bs-toggle="tooltip"
-                    data-bs-placement="bottom"
-                    data-bs-html="true"
-                    title="Or call us at <br /><strong>1-206-555-1234</strong>">Reserve Campsite
-                    </a>
+                    <button type="button" class="btn btn-info text-white btn-lg" data-bs-toggle="modal"
+                    data-bs-target="#reserveModal">Reserve Campsite
+                    </button>
                 </div>
             </div>
         </div>   
     </header>
+
+    <div id="reserveModal" class="modal fade">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-info text-white">
+                    <h3 class="modal-title">Reserve a Campsite</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <!----Reservation Form inside Modal-->
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <form id="reserveForm" action="https://us-central1-nucamp-production.cloudfunctions.net/post/formdata" method="post">
+                            <div class="row mb-3">
+                                <label for="numCampers" class="col-12 col-sm-6 col-form-label">Number of Campers</label>
+                                <div class="col form-control">
+                                    <select name="numCampers" id="numCampers">
+                                        <option selected>Select</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="date" class="col-12 col-sm-6 col-form-label">Date</label>
+                                <div class="col form-control">
+                                    <input type="date" id="date" name="date">
+                                </div>
+                            </div>
+                            <!----Create a radio button group-->
+                            <div class="row mb-3">
+                                <label class="col-sm-6 col-form-label">Campsite Type</label>
+                                <div class="col" class="btn-group" role="group">
+                                    <input type="radio" class="btn-check" name="campsitetype" id="tent" 
+                                    autocomplete="off" checked>
+                                    <label class="btn bg-success text-white" for="tent">Tent</label> 
+                                    <input type="radio" class="btn-check" name="campsitetype" id="rv" 
+                                    autocomplete="off">
+                                    <label class="btn bg-primary text-white" for="rv">RV</label> 
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <button type="cancel" data-bs-dismiss="modal" class="btn btn-secondary" >Cancel</button>
+                                    <button type="submit" class="btn btn-primary">Search</button>
+                                </div>
+                            </div>
+                        </form>
+                        <!-----LOGIN FORM MODAL--
+                        <form> 
+                            <div class="row">
+                                <div class="mb-3 col-12">
+                                    <label class="sr-only" for="loginEmail">Email Address</label>
+                                    <input type="email" class="form-control form-control-sm" id="loginEmail" 
+                                        placeholder="Enter email">
+                                </div>
+                                <div class="mb-3 col-12">
+                                    <label class="sr-only" for="loginPassword"> Password</label>
+                                    <input type="password" class="form-control form-control-sm"
+                                        id="loginPassword" placeholder="Password">
+                                </div>
+                                <div class="col">
+                                    <div class="form-check mb-3">
+                                        <input class="form-check-input" type="checkbox">
+                                        <label class="form-check-label">Remember Me</label> 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save Changes </button>
+                                </div>
+                            </div>
+                        </form>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <nav class="navbar navbar-expand-sm navbar-dark sticky-top">
         <div class="container">
@@ -163,7 +243,7 @@
                 </div>
             </div>
         </div>
-
+        <!-----   
         <div class="row row-content">
             <div class="col-sm-9 col-lg-5 mx-auto">
                 <div class="card mb-5">
@@ -201,7 +281,7 @@
                     </div>
                 
 
-        </div>
+        </div>-->
     </div>
 
     <footer class="site-footer">
